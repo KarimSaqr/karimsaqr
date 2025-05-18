@@ -1,7 +1,9 @@
 // Import Firebase functionality
 import { app, analytics, db } from './firebase.js';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { logEvent } from 'firebase/analytics';
+import { collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js';
+import { logEvent } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-analytics.js';
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   // Track page view with Firebase Analytics
