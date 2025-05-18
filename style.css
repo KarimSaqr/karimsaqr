@@ -292,6 +292,13 @@ header {
   font-size: 14px;
 }
 
+.more-skills {
+  cursor: pointer;
+  background-color: #2196F3;
+  color: white;
+  transition: background-color 0.3s;
+}
+
 /* Projects Section */
 .projects {
   padding: 80px 5%;
@@ -314,6 +321,9 @@ header {
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s ease;
+  stroke: #000000;
+  color: var(--black);
+  border: 1px solid var(--black);
 }
 
 .filter-btn:hover, .filter-btn.active {
@@ -596,8 +606,41 @@ footer {
   }
   
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+
+  .project-filters {
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 8px;
+    scrollbar-width: none; /* Firefox */
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .project-filters::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .project-filters {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .filter-btn {
+    display: inline-block;
+    width: auto;
+    min-width: 120px;
+    margin-right: 10px;
+    white-space: normal;
+  }
+
+  @media screen and (max-width: 576px) {
+    .filter-btn {
+      min-width: 80px; /* Adjusted for smaller screens */
+    }
+  }
+  
 }
 
 @media screen and (max-width: 576px) {
@@ -623,7 +666,9 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-  
+  .logo img {
+    width: 220px;
+  }
   .filter-btn {
     width: 80%;
   }

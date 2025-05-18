@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karim Saqr - Graphic Designer and Web Developer</title>
+  <title>Karim Saqr</title>
+    <meta name="description" content="Karim Saqr - Graphic Designer, UI/UX Designer, and Web Developer. Passionate about crafting clean visuals and smooth digital experiences.">
+    <meta name="keywords" content="Karim Saqr, Graphic Designer, UI/UX Designer, Web Developer, Portfolio">
+    <meta name="author" content="Karim Saqr">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="assets/icon.jpg" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icon.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@your_twitter_handle">
+    <meta name="twitter:title" content="Karim Saqr - Graphic Designer, UI/UX Designer, and Web Developer">
+    <meta name="twitter:description" content="Karim Saqr - Graphic Designer, UI/UX Designer, and Web Developer. Passionate about crafting clean visuals and smooth digital experiences.">
+    <meta name="twitter:image" content="assets/icon.jpg">
+    <meta property="og:title" content="Karim Saqr - Graphic Designer, UI/UX Designer, and Web Developer">
+    <meta property="og:description" content="Karim Saqr - Graphic Designer, UI/UX Designer, and Web Developer. Passionate about crafting clean visuals and smooth digital experiences.">
+    <meta property="og:image" content="assets/icon.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Karim Saqr">
+    <meta property="og:locale" content="en_US">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,8 +34,8 @@
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact" class="contact-btn">Contact</a></li>
       </ul>
@@ -40,8 +59,8 @@
         <h2>Hello! I'm Karim Mouhammed Youssry Saqr.</h2>
         <p>A Graphic Designer, UI/UX Designer, and Web Developer — passionate about crafting clean visuals and smooth digital experiences.</p>
         <div class="hero-buttons">
-          <a href="#about" class="btn btn-primary">Know more</a>
-          <a href="#" class="btn btn-secondary"><span>Resume</span> <i class="fas fa-download"></i></a>
+            <a href="#about" class="btn btn-primary"><span>Know more</span> &nbsp;<i class="fas fa-arrow-right"></i></a>
+          <a href="assets/karimSaqr-Resume.pdf" class="btn btn-secondary" download><span>Resume</span> <i class="fas fa-download"></i></a>
         </div>
       </div>
       <div class="hero-image">
@@ -58,7 +77,7 @@
     <div class="about-content">
       <div class="about-me">
         <h3>About Myself</h3>
-        <p>I'm Karim Mouhammed Youssry Saqr — a self-taught Graphic Designer, UI/UX Designer, and Front-End Developer based in Egypt. Over the past 3 years, I've explored the world of design through curiosity and hands-on practice. I never followed a full course — I simply opened Figma, started experimenting, and learned by doing. From branding and UI concepts to fully coded websites, I enjoy turning ideas into clean, thoughtful visuals that communicate and function beautifully. Whether it's a startup brand, a browser concept, or a simple landing page, I'm always learning, testing, and improving.</p>
+        <p>I am a passionate self-taught designer and developer with expertise in graphic design, UI/UX, and front-end development. My approach combines creativity with technical skills to build engaging digital experiences. I focus on clean, user-centered design that solves real problems while looking beautiful. Through continuous learning and practical experience, I've developed a strong foundation in modern design tools and web technologies.</p>
       </div>
       <div class="skills">
         <h3>Skills</h3>
@@ -67,10 +86,12 @@
           <span class="skill-tag">UI/UX Design</span>
           <span class="skill-tag">Graphic Design</span>
           <span class="skill-tag">Web Design</span>
+          <span class="skill-tag">Social Media Design</span>
           <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Illustrator</span>
-          <span class="skill-tag">Brand Development</span>
-          <span class="skill-tag">Brand Design</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+            <span class="skill-tag more-skills"><a href="about.html">+20 More Skills</a></span>
+            
         </div>
         <div class="info-tags">
           <span class="info-tag"><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</span>
@@ -191,8 +212,8 @@
     </div>
     <div class="contact-container">
       <div class="contact-info">
-        <h3>Want to connect or work together?</h3>
-        <p>Whether you're looking to collaborate, have feedback, or just want to say hi, I'd love to hear from you. Feel free to reach out through LinkedIn, email, or any platform you prefer.</p>
+        <h3>Let's Work Together!</h3>
+        <p>I'm always excited to discuss new opportunities and creative collaborations. Drop me a message through the form or connect with me directly via email or phone.</p>
         <div class="contact-methods">
           <a href="mailto:karimsaqr@outlook.com"><i class="far fa-envelope"></i> karimsaqr@outlook.com</a>
           <a href="tel:+201145951523"><i class="fas fa-phone-alt"></i> +20 114 595 1523</a>
@@ -222,8 +243,9 @@
     </div>
   </footer>
 
-  <script type="module" src="src/main.js"></script>
   <script type="module" src="main.js"></script>
+    <script type="module" src="/src/firebase.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
 

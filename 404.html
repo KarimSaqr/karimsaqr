@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Page Not Found | Karim Saqr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/icon.jpg" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #181818;
+      color: #fff;
+      font-family: 'Cairo', 'Kanit', Arial, sans-serif;
+      margin: 0;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+    .logo {
+      margin-bottom: 24px;
+    }
+    .logo img {
+      width: 400px;
+      max-width: 60vw;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    .error-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color, #2f80ed);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .error-msg {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+      color: #ccc;
+      text-align: center;
+      max-width: 90vw;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--primary-color, #2f80ed);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(47,128,237,0.08);
+      margin-top: 10px;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .back-btn:hover {
+      background: var(--primary-light, #5fa8ef);
+    }
+    @media (min-width: 577px) {
+      .logo img { width: 300px; }
+      .error-title { font-size: 5rem; }
+      .error-msg { font-size: 1.5rem; }
+      .back-btn { font-size: 1.1rem; max-width: 400px; }
+    }
+  </style>
+</head>
+<script>
+  // Countdown and auto-redirect to home
+  let seconds = 10;
+  const msg = document.createElement('div');
+  msg.style.marginTop = '16px';
+  msg.style.color = '#aaa';
+  msg.style.fontSize = '1rem';
+  msg.innerHTML = `Redirecting to <b>Home</b> in <span id="countdown">${seconds}</span> seconds...`;
+  document.body.appendChild(msg);
+
+  const countdown = setInterval(() => {
+    seconds--;
+    document.getElementById('countdown').textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(countdown);
+      window.location.href = 'index.html';
+    }
+  }, 1000);
+</script>
+<body>
+  <div class="logo">
+    <img src="assets/Group 109.png" alt="Karim Saqr Logo" />
+  </div>
+  <div class="error-title">404</div>
+  <div class="error-msg">Sorry, the page you’re looking for doesn’t exist.</div>
+  <a href="index.html" class="back-btn">Back to Home</a>
+</body>
+</html>
