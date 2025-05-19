@@ -4,19 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const navMenu = document.querySelector('.nav-links');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  // Toggle mobile menu
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-  });
-
-  // Close mobile menu when clicking on a link
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
+  if (hamburger && navMenu) {
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
     });
-  });
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  }
 
   // Projects filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (filterValue === 'all') {
           card.style.display = 'block';
         } else {
-          if (card.getAttribute('data-category').includes(filterValue)) {
+          if (card.getAttribute('data-category') && card.getAttribute('data-category').includes(filterValue)) {
             card.style.display = 'block';
           } else {
             card.style.display = 'none';
@@ -44,37 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Contact form submission
-  const contactForm = document.getElementById('contactForm');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      
-      // Here you would typically send the form data to a server
-      // For demo purposes, we'll just log it and show a success message
-      console.log('Form Submission:', { name, email, message });
-      
-      // Reset form
-      contactForm.reset();
-      
-      // Show success message (you could create a more sophisticated notification)
-      alert('Thank you for your message! I will get back to you soon.');
-    });
-  }
-
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
+      if (targetId === '#' || !document.querySelector(targetId)) return;
+      e.preventDefault();
+
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         window.scrollTo({
@@ -84,25 +62,50 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
+
   // Add animation on scroll
   const animateOnScroll = () => {
     const sections = document.querySelectorAll('section');
-    
     sections.forEach(section => {
       const sectionTop = section.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
-      
+
       if (sectionTop < windowHeight * 0.75) {
         section.classList.add('visible');
       }
     });
   };
-  
+
   // Initial check for elements in view
   animateOnScroll();
-  
+
   // Listen for scroll events
   window.addEventListener('scroll', animateOnScroll);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // ...your existing code...
+
+  // Contact form AJAX
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      status.textContent = "Sending...";
+      status.style.display = "block";
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        status.textContent = "Thank you! Your message has been sent.";
+        form.reset();
+      } else {
+        status.textContent = "Oops! There was a problem. Please try again.";
+      }
+    });
+  }
+});
